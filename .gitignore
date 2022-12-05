@@ -1,18 +1,71 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+namespace jjjjjjj
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            Console.WriteLine("ＰＩＥＤＲＡ,ＰＡＰＥＬ Ｙ ＴＩＪＥＲＡＳ\n");
 
-# Other files and folders
-.settings/
+            /*Se utilizo la clase random para generar numeros alealtorios*/
+            Random juego = new Random();
+            /*Se delcaran varibles de jugada*/
+            int res = 1, ronda1;
+            string rondas2, rondas3;
+            /*Se delcaro un vector de tipo string*/
+            string[] ronda = { "PI", "PA", "TI" };
+            /*Se ocupo de un ciclo while para repetir las rondas*/
+            while (res == 1)
+            {
+                Console.WriteLine("¡ES HORA DE JUGAR!\n");
+                Console.WriteLine("¡SUERTEE¡\n");
+                Console.WriteLine("¿QUE ELIJES?");
+                Console.WriteLine("Recuerda que\n");
+                Console.Write("1.-PAPAPEL \n");
+                Console.Write("2.-PIEDRA\n ");
+                Console.Write("3.-TIJERAS \n");
+                Console.Write("¡MUCHA SUERTE!\n ");
+                ronda1 =  int.Parse(Console.ReadLine());
+                /*Posicion atravez del vector*/
+                rondas2 = ronda[ronda1 - 1];
+                rondas3 = ronda[juego.Next(0, 2)];
+                /*Se empezo a comparar respuestas de la maquina con el usuario para llegar a un ganador*/
+                if ((rondas2 == "PI") && (rondas2 == "TI"))
+                    Console.Write("AHUEVO GANASTEEE!\n");
+                else if ((rondas2 == "PA") && (rondas3 == "PI"))
+                    Console.Write("AHUEVO GANASTEEE!\n");
+                else if ((rondas2 == "TI") && (rondas3 == "PA"))
+                    Console.Write("AHUEVO GANASTEEE!\n");
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+                
+                if ((rondas3 == "PI") && (rondas3 == "TI"))
+                    Console.Write("TE CHINGO LA MAQUINA." + rondas3 + "\n");
+                    
+                else if ((rondas3 == "PA") && (rondas2 == "PI"))
+                    Console.Write("TE CHINGO LA MAQUINA." + rondas3 + "\n");
+                else if ((rondas3 == "TI") && (rondas2 == "PA"))
+                    Console.Write("TE CHINGO LA MAQUINA." + rondas3 + "\n");
+                /*Se hizo comparacion por si llegaban a un empate*/
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+                if (((rondas3 == "PI") && (rondas2 == "PI")) || ((rondas3 == "PA") && (rondas2 == "PA")) ||
+                    ((rondas3 == " TI") && (rondas2 == "TI")))
+                    
+                    Console.Write("----EMPATE PERROS.----");
+                
+                Console.WriteLine("\n -- ¿QUIERES VOLVER A JUGAR? --");
+                Console.WriteLine("\n -- PERO PONTE CHINGON PADRINO --");
+                Console.WriteLine(" 1.-SI -" + "0.-NO-");
+                res = int.Parse(Console.ReadLine());
+                Console.Clear();
+
+
+
+
+
+            }
+        }
+
+
+
+    }
+}
